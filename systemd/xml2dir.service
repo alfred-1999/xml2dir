@@ -1,0 +1,12 @@
+[Unit]
+Description=xml2dir routing service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/xml2dir /etc/xml2dir/xml2dir.conf
+Restart=on-failure
+User=xml2dir
+
+[Install]
+WantedBy=multi-user.target
