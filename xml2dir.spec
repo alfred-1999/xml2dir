@@ -7,7 +7,7 @@ Group:          System/Daemons
 URL:            https://example.com/xml2dir
 Source0:        %{name}-%{version}.tar.gz
 
-BuildRequires:  gcc-c++
+BuildRequires:  gcc-c++ >= 9
 BuildRequires:  cmake
 BuildRequires:  pugixml-devel
 BuildRequires:  pkgconfig(systemd)

@@ -18,8 +18,7 @@ add_library(
 
 target_include_directories(xml2dir_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 find_package(Threads REQUIRED)
-target_link_libraries(xml2dir_core PUBLIC Threads::Threads pugixml::pugixml)
-
+target_link_libraries(xml2dir_core PUBLIC Threads::Threads pugixml::pugixml stdc++fs)
 # Main executable
 add_executable(xml2dir src/main.cpp)
 target_link_libraries(xml2dir PRIVATE xml2dir_core)
