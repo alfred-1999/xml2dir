@@ -7,7 +7,7 @@ Group:          System/Daemons
 URL:            https://example.com/xml2dir
 Source0:        %{name}-%{version}.tar.gz
 
-BuildRequires:  gcc-c++
+BuildRequires:  gcc12-c++
 BuildRequires:  cmake
 BuildRequires:  pugixml-devel
 BuildRequires:  pkgconfig(systemd)
@@ -21,7 +21,7 @@ subdirectories based on the <route> tag in each file. Logs all activity.
 %setup -q
 
 %build
-%cmake
+%cmake -DCMAKE_C_COMPILER=gcc-12 -DCMAKE_CXX_COMPILER=g++-12
 %cmake_build
 
 %install
