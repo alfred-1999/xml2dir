@@ -20,6 +20,10 @@ target_include_directories(xml2dir_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inclu
 find_package(Threads REQUIRED)
 target_link_libraries(xml2dir_core PUBLIC Threads::Threads pugixml::pugixml)
 
+# Main executable
+add_executable(xml2dir src/main.cpp)
+target_link_libraries(xml2dir PRIVATE xml2dir_core)
+
 # Tests enabled later
 option(BUILD_TESTS "Build tests" OFF)
 if(BUILD_TESTS)
