@@ -1,7 +1,5 @@
 #include "xml2dir/FileQueue.hpp"
-#include <experimental/filesystem>
-
-namespace fs = std::filesystem;
+#include <filesystem>
 
 FileQueue::FileQueue(std::string queueDir) : queueDir_(std::move(queueDir)) {}
 

@@ -1,11 +1,9 @@
 #include "xml2dir/XmlRouter.hpp"
 #include "xml2dir/Logger.hpp"
 #include <pugixml.hpp>
-#include <experimental/filesystem>
+#include <filesystem>
 #include <fstream>
 #include <sstream>
-
-namespace fs = std::filesystem;
 
 XmlRouter::XmlRouter(std::string outputRoot) : outputRoot_(std::move(outputRoot)) {}
 
