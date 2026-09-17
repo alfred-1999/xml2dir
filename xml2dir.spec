@@ -10,12 +10,11 @@ Source0:        %{name}-%{version}.tar.gz
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
 BuildRequires:  pugixml-devel
+BuildRequires:  boost-devel
 BuildRequires:  libboost_filesystem-devel
 BuildRequires:  libboost_system-devel
 BuildRequires:  pkgconfig(systemd)
 %{?systemd_requires}
-Requires:       libboost_filesystem1_75_0
-Requires:       libboost_system1_75_0
 
 %description
 A daemon that watches a queue directory for XML files and routes them into
@@ -25,7 +24,7 @@ subdirectories based on the <route> tag in each file. Logs all activity.
 %setup -q
 
 %build
-%cmake -DCMAKE_C_COMPILER=gcc-12 -DCMAKE_CXX_COMPILER=g++-12
+%cmake
 %cmake_build
 
 %install
