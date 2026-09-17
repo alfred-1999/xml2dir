@@ -24,7 +24,6 @@ target_link_libraries(xml2dir_core
         Threads::Threads
         pugixml::pugixml
         Boost::filesystem
-        Boost::system
     )
 # Main executable
 add_executable(xml2dir src/main.cpp)
