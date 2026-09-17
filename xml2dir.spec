@@ -10,6 +10,9 @@ Source0:        %{name}-%{version}.tar
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
 BuildRequires:  pugixml-devel
+BuildRequires:  boost-devel
+BuildRequires:  libboost_filesystem1_66_0-devel
+BuildRequires:  libboost_system1_66_0-devel
 BuildRequires:  pkgconfig(systemd)
 
 %{?systemd_requires}
