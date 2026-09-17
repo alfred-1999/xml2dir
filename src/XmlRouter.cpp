@@ -1,9 +1,11 @@
 #include "xml2dir/XmlRouter.hpp"
 #include "xml2dir/Logger.hpp"
 #include <pugixml.hpp>
-#include <filesystem>
+#include <boost/filesystem.hpp>
 #include <fstream>
 #include <sstream>
+
+namespace fs = boost::filesystem;
 
 XmlRouter::XmlRouter(std::string outputRoot) : outputRoot_(std::move(outputRoot)) {}
 
@@ -51,7 +53,7 @@ bool XmlRouter::route(const std::string& filePath) {
     std::string key = extractKey(content);
     fs::path targetDir = fs::path(outputRoot_) / key;
 
-    std::error_code ec;
+    boost::system::error_code ec;
     fs::create_directories(targetDir, ec);
     if (ec) {
         LOG_ERROR("Cannot create dir " + targetDir.string() + ": " + ec.message());

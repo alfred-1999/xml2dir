@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Find pugixml
 find_package(pugixml REQUIRED)
+find_package(Boost REQUIRED COMPONENTS filesystem system)
+find_package(Threads REQUIRED)
 
 # Core libraries
 add_library(
@@ -17,8 +19,13 @@ add_library(
 )
 
 target_include_directories(xml2dir_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-find_package(Threads REQUIRED)
-target_link_libraries(xml2dir_core PUBLIC Threads::Threads pugixml::pugixml stdc++fs)
+target_link_libraries(xml2dir_core
+    PUBLIC
+        Threads::Threads
+        pugixml::pugixml
+        Boost::filesystem
+        Boost::system
+)
 # Main executable
 add_executable(xml2dir src/main.cpp)
 target_link_libraries(xml2dir PRIVATE xml2dir_core)
