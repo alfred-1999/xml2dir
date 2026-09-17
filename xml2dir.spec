@@ -5,12 +5,12 @@ Summary:        XML file routing service
 License:        MIT
 Group:          System/Daemons
 URL:            https://example.com/xml2dir
-Source0:        %{name}-%{version}.tar.gz
+Source0:        %{name}-%{version}.tar.xz
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
 BuildRequires:  pugixml-devel
-BuildRequires:  boost-devel
+BuildRequires:  libboost_headers-devel
 BuildRequires:  libboost_filesystem-devel
 BuildRequires:  libboost_system-devel
 BuildRequires:  pkgconfig(systemd)
