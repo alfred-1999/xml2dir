@@ -14,6 +14,8 @@ BuildRequires:  libboost_filesystem-devel
 BuildRequires:  libboost_system-devel
 BuildRequires:  pkgconfig(systemd)
 %{?systemd_requires}
+Requires:       libboost_filesystem1_75_0
+Requires:       libboost_system1_75_0
 
 %description
 A daemon that watches a queue directory for XML files and routes them into
