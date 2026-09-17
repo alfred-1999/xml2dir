@@ -5,7 +5,7 @@ Summary:        XML file routing service
 License:        MIT
 Group:          System/Daemons
 URL:            https://github.com/alfred-1999/xml2dir
-Source0:        %{name}-%{version}.tar.xz
+Source0:        %{name}-%{version}.tar
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
