@@ -11,8 +11,6 @@ BuildRequires:  gcc-c++
 BuildRequires:  cmake
 BuildRequires:  pugixml-devel
 BuildRequires:  boost-devel
-BuildRequires:  boost-filesystem-devel
-BuildRequires:  boost-system-devel
 BuildRequires:  pkgconfig(systemd)
 
 %{?systemd_requires}
