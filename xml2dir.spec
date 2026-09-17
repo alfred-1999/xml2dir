@@ -52,9 +52,9 @@ install -Dm0644 %{_builddir}/%{name}-%{version}/systemd/xml2dir.service \
 %license LICENSE
 %doc README.md
 %{_bindir}/xml2dir
+%dir %{_sysconfdir}/xml2dir
 %config(noreplace) %{_sysconfdir}/xml2dir/xml2dir.conf
 %{_unitdir}/xml2dir.service
-
 %changelog
 * Thu Sep 10 2026 alfred - 1.0.0
 - Initial package.
