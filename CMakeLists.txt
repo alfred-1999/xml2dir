@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Find pugixml
 find_package(pugixml REQUIRED)
-find_package(Boost REQUIRED COMPONENTS filesystem system)
+find_package(Boost CONFIG REQUIRED COMPONENTS filesystem system)   
 find_package(Threads REQUIRED)
 
 # Core libraries
