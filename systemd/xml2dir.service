@@ -4,8 +4,13 @@ After=network.target
 
 [Service]
 Type=simple
+User=root
+Group=root
+
 ExecStart=/usr/bin/xml2dir /etc/xml2dir/xml2dir.conf
+
 Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
