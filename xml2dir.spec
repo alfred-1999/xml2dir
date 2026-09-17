@@ -31,26 +31,21 @@ subdirectories based on the <route> tag in each file. Logs all activity.
 %install
 %cmake_install
 
-# Install config and systemd unit
 install -Dm0644 %{_builddir}/%{name}-%{version}/config/xml2dir.conf \
     %{buildroot}%{_sysconfdir}/xml2dir/xml2dir.conf
 install -Dm0644 %{_builddir}/%{name}-%{version}/systemd/xml2dir.service \
     %{buildroot}%{_unitdir}/xml2dir.service
 
-# SUSE rc symlink: rcxml2dir -> service
+# SUSE rc symlink
 mkdir -p %{buildroot}%{_sbindir}
 ln -sf %{_sbindir}/service %{buildroot}%{_sbindir}/rcxml2dir
 
-# Runtime directories owned by the service user
+# Runtime directories (root-owned)
 install -d %{buildroot}%{_localstatedir}/lib/xml2dir/queue
 install -d %{buildroot}%{_localstatedir}/lib/xml2dir/output
 install -d %{buildroot}%{_localstatedir}/log/xml2dir
 
 %pre
-getent group xml2dir >/dev/null || groupadd -r xml2dir
-getent passwd xml2dir >/dev/null || \
-    useradd -r -g xml2dir -d %{_localstatedir}/lib/xml2dir -s /sbin/nologin \
-    -c "xml2dir service user" xml2dir
 %service_add_pre xml2dir.service
 
 %post
@@ -70,10 +65,11 @@ getent passwd xml2dir >/dev/null || \
 %dir %{_sysconfdir}/xml2dir
 %config(noreplace) %{_sysconfdir}/xml2dir/xml2dir.conf
 %{_unitdir}/xml2dir.service
-%attr(0750,xml2dir,xml2dir) %dir %{_localstatedir}/lib/xml2dir
-%attr(0750,xml2dir,xml2dir) %dir %{_localstatedir}/lib/xml2dir/queue
-%attr(0750,xml2dir,xml2dir) %dir %{_localstatedir}/lib/xml2dir/output
-%attr(0750,xml2dir,xml2dir) %dir %{_localstatedir}/log/xml2dir
+%dir %{_localstatedir}/lib/xml2dir
+%dir %{_localstatedir}/lib/xml2dir/queue
+%dir %{_localstatedir}/lib/xml2dir/output
+%dir %{_localstatedir}/log/xml2dir
+
 
 %changelog
 * Thu Sep 17 2026 alfred <alfred@example.com> - 1.0.0-0

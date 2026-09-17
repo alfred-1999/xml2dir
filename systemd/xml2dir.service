@@ -4,8 +4,6 @@ After=network.target
 
 [Service]
 Type=simple
-User=xml2dir
-Group=xml2dir
 ExecStart=/usr/bin/xml2dir /etc/xml2dir/xml2dir.conf
 Restart=on-failure
 
