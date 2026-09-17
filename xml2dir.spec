@@ -37,21 +37,21 @@ XML files into the queue directory.
 
 # Configuration
 
-install -Dm0644 
-%{_builddir}/%{name}-%{version}/config/xml2dir.conf 
-%{buildroot}%{_sysconfdir}/xml2dir/xml2dir.conf
+install -Dm0644 \
+    %{_builddir}/%{name}-%{version}/config/xml2dir.conf \
+    %{buildroot}%{_sysconfdir}/xml2dir/xml2dir.conf
 
 # systemd service
 
-install -Dm0644 
-%{_builddir}/%{name}-%{version}/systemd/xml2dir.service 
-%{buildroot}%{_unitdir}/xml2dir.service
+install -Dm0644 \
+    %{_builddir}/%{name}-%{version}/systemd/xml2dir.service \
+    %{buildroot}%{_unitdir}/xml2dir.service
 
 # SUSE service compatibility link
 
 mkdir -p %{buildroot}%{_sbindir}
-ln -sf %{_sbindir}/service 
-%{buildroot}%{_sbindir}/rcxml2dir
+ln -sf %{_sbindir}/service \
+    %{buildroot}%{_sbindir}/rcxml2dir
 
 # Runtime directories
 
@@ -64,8 +64,8 @@ install -d %{buildroot}%{_localstatedir}/log/xml2dir
 
 # Create group used by normal users submitting XML files.
 
-getent group xml2dir >/dev/null 2>&1 || 
-groupadd --system xml2dir
+getent group xml2dir >/dev/null 2>&1 || \
+    groupadd --system xml2dir
 
 %service_add_pre xml2dir.service
 
