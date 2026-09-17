@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(xml2dir CXX)
+project(xml2dir  VERSION 1.0.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
@@ -23,9 +23,7 @@ target_link_libraries(xml2dir_core
     PUBLIC
         Threads::Threads
         pugixml::pugixml
-        Boost::filesystem
-        Boost::system
-)
+    )
 # Main executable
 add_executable(xml2dir src/main.cpp)
 target_link_libraries(xml2dir PRIVATE xml2dir_core)
