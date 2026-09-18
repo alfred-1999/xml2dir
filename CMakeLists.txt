@@ -37,7 +37,7 @@ find_package(Threads REQUIRED)
 
 # Core libraries
 add_library(
-    xml2dir_core
+    xml2dir_core STATIC
     src/Config.cpp
     src/Logger.cpp
     src/FileQueue.cpp
