@@ -11,27 +11,27 @@ set(Boost_USE_STATIC_RUNTIME OFF)
 find_package(pugixml REQUIRED)
 find_package(Boost 1.66.0 REQUIRED COMPONENTS filesystem system)   
 
-message(STATUS "========== BOOST DEBUG ==========")
+# message(STATUS "========== BOOST DEBUG ==========")
 
-execute_process(
-    COMMAND sh -c "rpm -qa | grep -i boost | sort"
-    OUTPUT_VARIABLE BOOST_RPM_PACKAGES
-    ERROR_VARIABLE BOOST_RPM_ERROR
-)
+# execute_process(
+#     COMMAND sh -c "rpm -qa | grep -i boost | sort"
+#     OUTPUT_VARIABLE BOOST_RPM_PACKAGES
+#     ERROR_VARIABLE BOOST_RPM_ERROR
+# )
 
-message(STATUS "Installed Boost RPM packages:")
-message(STATUS "${BOOST_RPM_PACKAGES}")
+# message(STATUS "Installed Boost RPM packages:")
+# message(STATUS "${BOOST_RPM_PACKAGES}")
 
-execute_process(
-    COMMAND sh -c "find /usr/lib64 /usr/lib -name 'libboost_filesystem*' -o -name 'libboost_system*' 2>/dev/null"
-    OUTPUT_VARIABLE BOOST_LIB_FILES
-    ERROR_VARIABLE BOOST_LIB_ERROR
-)
+# execute_process(
+#     COMMAND sh -c "find /usr/lib64 /usr/lib -name 'libboost_filesystem*' -o -name 'libboost_system*' 2>/dev/null"
+#     OUTPUT_VARIABLE BOOST_LIB_FILES
+#     ERROR_VARIABLE BOOST_LIB_ERROR
+# )
 
-message(STATUS "Boost library files:")
-message(STATUS "${BOOST_LIB_FILES}")
+# message(STATUS "Boost library files:")
+# message(STATUS "${BOOST_LIB_FILES}")
 
-message(STATUS "=================================")
+# message(STATUS "=================================")
 
 find_package(Threads REQUIRED)
 
